@@ -32,32 +32,32 @@ const char* fs = MULTILINE(
 
 int main(void) {
 
-    GLFWwindow* window;
+	GLFWwindow* window;
 
-    if (!glfwInit())
-        return -1;
+	if (!glfwInit())
+		return -1;
 
-    window = glfwCreateWindow(640, 480, "▲", NULL, NULL);
-    if (!window) {
-        glfwTerminate();
-        return -1;
-    }
+	window = glfwCreateWindow(640, 480, "▲", NULL, NULL);
+	if (!window) {
+		glfwTerminate();
+		return -1;
+	}
 
-    glfwMakeContextCurrent(window);
+	glfwMakeContextCurrent(window);
 
 	GLuint shader = create_shader(vs, fs);
 	glUseProgram(shader);
 	
-    while (!glfwWindowShouldClose(window)) {
+	while (!glfwWindowShouldClose(window)) {
 
-        glClear(GL_COLOR_BUFFER_BIT);
-        render_triangles(vertices, colors);
+		glClear(GL_COLOR_BUFFER_BIT);
+		render_triangles(vertices, colors);
 
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
+		glfwSwapBuffers(window);
+		glfwPollEvents();
+	}
 
-    glfwTerminate();
-    return 0;
+	glfwTerminate();
+	return 0;
 }
 
